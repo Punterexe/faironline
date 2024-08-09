@@ -1,3 +1,20 @@
+// Function to run on anchor click
+function onAnchorClick(event) {
+    event.preventDefault(); // Prevent default action (navigation)
+    fbq('track', 'Contact');
+
+    // Now, open the link
+    window.location.href = event.target.href;
+}
+
+// Attach the event listener to all anchor tags on page load
+window.onload = function() {
+    const anchors = document.querySelectorAll('a');
+    anchors.forEach(anchor => {
+        anchor.addEventListener('click', onAnchorClick);
+    });
+};
+
 $(function ($) {
   "use strict";
 
